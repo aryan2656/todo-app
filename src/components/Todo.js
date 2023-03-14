@@ -5,7 +5,7 @@ import { db } from "../firebase";
 
 const Todo = () => {
   const [todo, setTodo] = useState("");
-  const [todos, setTodos] = useState("");
+  const [todos, setTodos] = useState([]);
 
   const addTodo = async (e) => {
     e.preventDefault();
@@ -21,7 +21,12 @@ const Todo = () => {
 
   const fetchPost = async () => {
     await getDocs(collection(db, "todos")).then((querySnapshot) => {
-      const newData = querySnapshot.docs.map((doc) => ({
+      const newData=[]
+      querySnapshot.docs.map((doc) => (
+        
+        
+        newData.push({
+        
         ...doc.data(),
         id: doc.id,
       }));
