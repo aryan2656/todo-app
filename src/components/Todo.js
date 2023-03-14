@@ -56,9 +56,10 @@ const Todo = () => {
         </div>
 
         <div className="todo-content">
-          {todos.map((todo, i) => (
+          {todos.map((todo, i) => {
+          return(
             <p key={i}>{todo}</p>
-          ))}
+          ))}}
         </div>
       </div>
     </section>
